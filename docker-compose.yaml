@@ -5,7 +5,7 @@ services:
     image: mysql:8.1.0
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: examples
+      MYSQL_DATABASE: examples-default
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:

@@ -6,3 +6,6 @@ run: clean
 
 clean:
 	rm -rf ./docker/db/data/*
+
+mysql:
+	docker compose exec mysql mysql -u root
