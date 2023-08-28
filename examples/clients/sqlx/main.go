@@ -30,7 +30,19 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// SQL実行
+	// SQL実行 (INSERT)
+	user := User{Name: "John Doe", Email: "john@example.com"}
+	result, err := db.NamedExec("INSERT INTO users(name, email) VALUES(:name, :email)", user)
+	if err != nil {
+		log.Fatal(err)
+	}
+	lastInsertID, err := result.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Last inserted ID:", lastInsertID)
+
+	// SQL実行 (SELECT)
 	rows, err := db.Queryx("SELECT id, name, email FROM users")
 	if err != nil {
 		log.Fatal(err)
