@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.1.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: examples
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+    - 3306:3306
+    volumes:
+    - ./docker/db/data:/var/lib/mysql
+    - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./docker/db/sql:/docker-entrypoint-initdb.d
